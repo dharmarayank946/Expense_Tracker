@@ -1149,3 +1149,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial render
   renderApp();
 });
+

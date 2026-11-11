@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Report - Interactive Expense Tracker</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #0f172a;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 2.5rem 1.5rem;
+    }
+    .report-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      color: #0f172a;
+      font-size: 2rem;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 0.75rem;
+      margin-top: 0;
+    }
+    h2 {
+      color: #1e40af;
+      font-size: 1.35rem;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.4rem;
+      margin-top: 2.25rem;
+    }
+    h3 {
+      color: #334155;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+    p {
+      margin: 0.85rem 0;
+      color: #334155;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 2rem 0;
+    }
+    code {
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.88em;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 0.7rem 0.85rem;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    ul {
+      padding-left: 1.5rem;
+      margin: 0.85rem 0;
+    }
+    li {
+      margin-bottom: 0.4rem;
+      color: #334155;
+    }
+    figure {
+      margin: 1.5rem 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .report-wrapper { border: none; box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <article class="report-wrapper">
+    <h1>PROJECT REPORT: INTERACTIVE EXPENSE TRACKER WEB APPLICATION</h1>
+<hr>
+<h2>1. Project Title</h2>
+<p><strong>Interactive Expense Tracker Web Application</strong>  </p>
+<p><em>A Responsive Personal Finance & Budget Management System</em></p>
+<hr>
+<h2>2. Project Introduction</h2>
+<p>The <strong>Interactive Expense Tracker Web Application</strong> is a client-side personal finance solution engineered using Vanilla JavaScript (ES6+), modern CSS3, and semantic HTML5. In modern life, personal financial management often fails due to friction in recording transactions or complex, unintuitive accounting software. This project provides a frictionless, transparent, and aesthetically refined platform for users to log daily expenses, categorize transactions, audit expenditures across time intervals, evaluate category-wise distribution, and maintain persistent records directly within their web browser using the HTML5 Web Storage API (LocalStorage).</p>
+<p>The project is developed with clean code principles, zero third-party framework dependencies, full accessibility adherence (WCAG 2.1 AA), and robust cross-device responsiveness.</p>
+<hr>
+<h2>3. Problem Statement</h2>
+<p>Many individuals struggle with financial mindfulness, exceeding monthly budgets because micro-transactions (daily food, commute, utilities, discretionary shopping) go unrecorded. Existing solutions often suffer from critical drawbacks:</p>
+<p>1. <strong>Friction and Overhead:</strong> Heavy mobile apps or desktop software require sign-in accounts, cloud synchronization latency, and subscription fees.</p>
+<p>2. <strong>Data Privacy Concerns:</strong> Users are increasingly reluctant to expose personal transaction details to cloud database providers or third-party servers.</p>
+<p>3. <strong>Lack of Immediate Visual Feedback:</strong> Spreadsheets and basic notebooks lack automated real-time calculations, dynamic category distributions, and flexible multi-criteria filtering.</p>
+<p>Therefore, there is a clear necessity for an accessible, offline-capable, lightweight, and responsive browser application that guarantees instant responsiveness, privacy, and actionable financial analytics.</p>
+<hr>
+<h2>4. Project Objectives</h2>
+<p>The primary objectives of this software project are:</p>
+<ul>
+<li><strong>Zero-Friction Transaction Logging:</strong> Provide a simple, validated form to record transactions with title, positive currency amount, category, date, and optional tags.</li>
+<li><strong>Full Expense Lifecycle Management (CRUD):</strong> Enable complete Create, Read, Update, and Delete operations on expense records.</li>
+<li><strong>Real-Time Financial Calculations:</strong> Automatically compute total expenditure, active monthly spending, transaction count, and average spend per transaction.</li>
+<li><strong>Dynamic Category Breakdown:</strong> Calculate category totals, percentages, and render responsive visual progress indicators highlighting top spending areas.</li>
+<li><strong>Multi-Parametric Filtering & Sorting:</strong> Allow users to search by keyword, filter by 10 distinct categories, filter by preset and custom date intervals, and sort by date, amount, or title.</li>
+<li><strong>Persistent Client-Side Storage:</strong> Safely serialize, retrieve, and update records in browser LocalStorage with graceful error fallback mechanisms.</li>
+<li><strong>Universal Device Support:</strong> Deliver a seamless user experience across mobile phones (375px+), tablets (768px), laptops (1080px), and wide desktop displays (1440px+).</li>
+</ul>
+<hr>
+<h2>5. Technologies Used</h2>
+<table><thead><tr><th>Technology / Tool</th><th>Version / Standard</th><th>Role & Implementation Scope</th></tr></thead><tbody>
+<tr><td>**HTML5**</td><td>Semantic Standard</td><td>Document outline, `<header>`, `<main>`, `<section>`, `<article>`, `<form>`, ARIA landmarks, dialog modal.</td></tr>
+<tr><td>**CSS3**</td><td>Modern Standards</td><td>CSS Custom Properties (Variables), CSS Grid, Flexbox, Keyframe Animations, Responsive Media Queries.</td></tr>
+<tr><td>**JavaScript**</td><td>ECMAScript 2020+ (ES6+)</td><td>Core application logic, centralized state management, DOM event listeners, array manipulation, input validation.</td></tr>
+<tr><td>**Web Storage API**</td><td>Browser Standard</td><td>`localStorage.getItem()`, `localStorage.setItem()` for data persistence.</td></tr>
+<tr><td>**Google Fonts**</td><td>Inter (400, 500, 600, 700, 800)</td><td>Typography and readability optimization.</td></tr>
+<tr><td>**Git & GitHub**</td><td>Version Control</td><td>Source code versioning, commit logging, and remote distribution.</td></tr>
+</tbody></table>
+<hr>
+<h2>6. Project Requirements</h2>
+<h3>Functional Requirements</h3>
+<p>1. <strong>Add Expenses:</strong> Input title, amount, category, date, and optional note with strict validation.</p>
+<p>2. <strong>View Expenses:</strong> Dynamic listing showing category icon badge, title, category pill, date, note, formatted amount, and action buttons.</p>
+<p>3. <strong>Edit Expenses:</strong> Select any recorded item to enter editing mode, populating the form, altering headers and buttons, and updating the item in-place.</p>
+<p>4. <strong>Delete Expenses:</strong> Delete individual records or clear the entire history through a confirmation modal dialog.</p>
+<p>5. <strong>Category Classification:</strong> Map expenses to 10 distinct categories: Food & Dining, Transportation, Housing & Utilities, Entertainment, Healthcare, Education, Shopping, Personal Care, Travel, and Miscellaneous.</p>
+<p>6. <strong>Category Filtering:</strong> Filter records by individual category or view all categories.</p>
+<p>7. <strong>Date Filtering:</strong> Quick presets ("All Time", "Today", "This Week", "This Month") and custom date interval selection.</p>
+<p>8. <strong>Multi-Attribute Sorting:</strong> Sort records by date (newest/oldest), amount (highest/lowest), or title (A-Z/Z-A).</p>
+<p>9. <strong>Automatic Calculation Engine:</strong> Real-time updates for Total Spend, Current Month Spend, Total Transactions, and Average Spend.</p>
+<p>10. <strong>Category Spending Summary:</strong> Horizontal percentage progress bars and identification of top spending category.</p>
+<p>11. <strong>LocalStorage Persistence:</strong> Automatic saving and retrieval across browser sessions.</p>
+<p>12. <strong>Multi-Currency Support:</strong> Instant toggle between INR (₹), USD ($), EUR (€), and GBP (£).</p>
+<h3>Non-Functional Requirements</h3>
+<ul>
+<li><strong>Performance:</strong> Instantaneous client-side DOM updates with 0ms server latency.</li>
+<li><strong>Usability & Accessibility:</strong> High-contrast text colors, clear focus states, screen-reader labels, keyboard navigation.</li>
+<li><strong>Robustness:</strong> Graceful handling of invalid input, empty states, and corrupted storage data.</li>
+</ul>
+<hr>
+<h2>7. System Architecture</h2>
+<p>The application adopts a modular, event-driven, Model-View-Controller (MVC) inspired client-side architecture:</p>
+<pre><code>
++------------------------------------------------------------------+
+|                           User Interface                         |
+|  [Header / Currency] [Metrics Cards] [Expense Form] [Filters]    |
+|  [Category Breakdown] [Expense List] [Modal Dialog] [Toast]      |
++---------------------------------+--------------------------------+
+                                  |
+                                  | DOM Events (submit, click, input, change)
+                                  v
++------------------------------------------------------------------+
+|                     Application Controller                       |
+|   - handleFormSubmit()        - startEditExpense()               |
+|   - promptDeleteExpense()     - resetAllFilters()                |
+|   - getFilteredExpenses()     - showToast()                      |
++-------------------+------------------------------+---------------+
+                    |                              |
+         Updates / Reads                Mutates / Reads
+                    v                              v
++-----------------------------+  +---------------------------------+
+|       Rendering Engine      |  |        State Model (state)      |
+|  - renderDashboardMetrics() |  |  - expenses: Array&lt;Expense&gt;     |
+|  - renderCategoryBreakdown()|  |  - editingId: string | null     |
+|  - renderExpenseList()      |  |  - currency: string             |
+|  - updateCurrencyDisplay()  |  |  - filters: FilterState         |
++-----------------------------+  +----------------+----------------+
+                                                  |
+                                                  | JSON Serialization
+                                                  v
+                                 +---------------------------------+
+                                 | Browser LocalStorage API        |
+                                 | Key: EXPENSE_TRACKER_RECORDS_V1 |
+                                 | Key: EXPENSE_TRACKER_CURRENCY_V1|
+                                 +---------------------------------+
+</code></pre>
+<hr>
+<h2>8. Folder Structure</h2>
+<pre><code>
+D:\Projects\Veda\Expense_Tracker\
+│
+├── index.html                      # Semantic HTML5 markup, layout structure, modal dialog
+├── styles.css                      # Complete styling, CSS variables, grid/flexbox, animations
+├── app.js                          # Core JavaScript application logic, state, and DOM controllers
+├── README.md                       # High-level overview, feature summary, setup instructions
+├── PROJECT_REPORT.md               # Complete technical specification and audit report
+└── assets/
+    └── screenshots/                # Real captured layout verification images
+        ├── expense-tracker-desktop.png
+        ├── expense-tracker-tablet.png
+        └── expense-tracker-mobile.png
+</code></pre>
+<hr>
+<h2>9. Feature Descriptions</h2>
+<h3>A. Expense Form & Validation</h3>
+<ul>
+<li><strong>Title Validation:</strong> Ensures the expense description contains at least 2 non-whitespace characters and does not exceed 80 characters.</li>
+<li><strong>Amount Validation:</strong> Validates strictly positive numeric values ($0.01 \le \text{amount} \le 10,000,000$).</li>
+<li><strong>Category Selection:</strong> Enforces selection from 10 predefined categories.</li>
+<li><strong>Date Picker:</strong> Defaults automatically to the current date ($YYYY-MM-DD$).</li>
+<li><strong>Visual Error Indicators:</strong> Real-time feedback clears immediately upon valid keystroke or selection.</li>
+</ul>
+<h3>B. Expense Management (CRUD)</h3>
+<ul>
+<li><strong>Add:</strong> Generates a unique pseudo-random identifier (<code>exp_<timestamp>_<hash></code>), prepends the record to the array, updates state, and saves to LocalStorage.</li>
+<li><strong>Edit:</strong> Transitions the form into "Edit Mode", changes heading to "Edit Expense", alters the primary CTA to "Update Expense", displays the "Cancel Edit" button, highlights the targeted row, and scrolls the form into view.</li>
+<li><strong>Delete:</strong> Opens a modal dialog summarizing the targeted expense title and amount. Upon confirmation, removes the element from state and LocalStorage with a notification toast.</li>
+<li><strong>Clear All:</strong> Confirmation-gated purge of all recorded expenses with automatic state reset.</li>
+</ul>
+<h3>C. Filtering and Sorting Engine</h3>
+<ul>
+<li><strong>Search:</strong> Case-insensitive substring matching against <code>title</code>, <code>notes</code>, and <code>category</code>.</li>
+<li><strong>Category Filter:</strong> Dropdown isolating any of the 10 categories or displaying all.</li>
+<li><strong>Quick Date Presets:</strong> One-touch date evaluation:</li>
+<li><em>Today:</em> Matches active date string.</li>
+<li><em>This Week:</em> Monday to Sunday boundary calculation.</li>
+<li><em>This Month:</em> Calendar month boundary calculation.</li>
+<li><em>Custom Range:</em> Strict range comparison ($\text{dateFrom} \le \text{expense.date} \le \text{dateTo}$).</li>
+<li><strong>Sorting Modes:</strong> Chronological (Newest/Oldest), Monetary (Highest/Lowest), and Lexicographical (A-Z/Z-A).</li>
+<li><strong>Reset Button:</strong> Instantly restores search query, category selection, date presets, and sorting order to default.</li>
+</ul>
+<h3>D. Analytics Dashboard</h3>
+<ul>
+<li><strong>Total Expenses:</strong> Summation of all transaction values $\sum_{i=1}^n \text{amount}_i$.</li>
+<li><strong>Current Month Total:</strong> Dynamic filtering and summation of current calendar month transactions.</li>
+<li><strong>Active Transactions Count:</strong> Total number of stored expense records.</li>
+<li><strong>Average Spend:</strong> Computes $\frac{\text{Total Spend}}{\text{Transaction Count}}$.</li>
+<li><strong>Category Breakdown:</strong> Aggregates spend per category, evaluates percentage of total budget, and renders proportional colored progress bars.</li>
+<li><strong>Top Category Badge:</strong> Highlights the highest expenditure category in the interface header.</li>
+</ul>
+<hr>
+<h2>10. Implementation Details</h2>
+<h3>Centralized State Container</h3>
+<pre><code>
+const state = {
+  expenses: [],
+  editingId: null,
+  currency: 'INR',
+  filters: {
+    search: '',
+    category: 'ALL',
+    period: 'all',
+    dateFrom: '',
+    dateTo: '',
+    sortBy: 'date-desc'
+  },
+  modalCallback: null
+};
+</code></pre>
+<h3>Pure Pipeline Data Flow</h3>
+<p>All changes follow an immutable or centralized mutation pattern:</p>
+<p>1. User interacts with DOM (e.g. submits form, clicks edit, types search query).</p>
+<p>2. Event handler validates and mutates <code>state</code>.</p>
+<p>3. State persistence helper syncs state to <code>localStorage</code>.</p>
+<p>4. <code>renderApp()</code> is invoked, recalculating all metrics and updating DOM fragments cleanly.</p>
+<hr>
+<h2>11. JavaScript Concepts Used</h2>
+<p>1. <strong>Strict Mode (<code>'use strict';</code>):</strong> Enforces cleaner error catching and prohibits variable leaks into the global namespace.</p>
+<p>2. <strong>ES6+ Modern Syntax:</strong></p>
+<ul>
+<li>Arrow functions <code>() => {}</code></li>
+<li>Template literals with interpolation `<code> </code>${variable}<code> </code>`</li>
+<li>Destructuring assignment <code>{ id, title, amount }</code></li>
+<li>Spread operator <code>[...state.expenses]</code>, <code>{ ...expense }</code></li>
+<li>Optional chaining and default parameters</li>
+</ul>
+<p>3. <strong>Higher-Order Array Methods:</strong></p>
+<ul>
+<li><code>.map()</code>: Generating dynamic HTML markup strings.</li>
+<li><code>.filter()</code>: Executing multi-criteria search, category, and date filtering.</li>
+<li><code>.reduce()</code>: Computing cumulative totals, monthly aggregates, and category distributions.</li>
+<li><code>.sort()</code>: Reordering arrays by multiple criteria without modifying original reference.</li>
+</ul>
+<p>4. <strong>DOM Traversal & Event Delegation:</strong></p>
+<ul>
+<li>Single event listener on container using <code>e.target.closest('[data-action]')</code> to handle dynamically created edit and delete buttons efficiently.</li>
+</ul>
+<p>5. <strong>Form & Date APIs:</strong></p>
+<ul>
+<li><code>e.preventDefault()</code> for single-page app behavior.</li>
+<li>JavaScript <code>Date</code> object manipulation for calendar comparisons.</li>
+</ul>
+<hr>
+<h2>12. LocalStorage Implementation</h2>
+<p>The application interfaces directly with the browser's persistent key-value store using <code>localStorage</code>:</p>
+<pre><code>
+const STORAGE_KEY = 'EXPENSE_TRACKER_RECORDS_V1';
+
+// Save Records
+function saveExpensesToStorage() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.expenses));
+  } catch (error) {
+    console.error('Failed to save records to LocalStorage:', error);
+    showToast('Storage quota exceeded or storage unavailable!', 'danger');
+  }
+}
+
+// Load Records
+function loadStateFromStorage() {
+  try {
+    const rawData = localStorage.getItem(STORAGE_KEY);
+    if (rawData) {
+      const parsed = JSON.parse(rawData);
+      if (Array.isArray(parsed)) {
+        state.expenses = parsed.map(sanitizeExpense);
+      }
+    }
+  } catch (error) {
+    console.error('Failed to load records from LocalStorage:', error);
+    state.expenses = [];
+  }
+}
+</code></pre>
+<h3>Safety Features</h3>
+<ul>
+<li><strong>Sanitization on Deserialization:</strong> Ensures every loaded record possesses valid strings, valid dates, and positive numbers.</li>
+<li><strong>Corrupt Storage Fallback:</strong> Wrapped in <code>try...catch</code> blocks to protect against parsing invalid JSON, defaulting to an empty list without crashing the application.</li>
+<li><strong>Storage Availability Handling:</strong> Prevents script execution halts if privacy browser settings disable third-party cookies or storage.</li>
+</ul>
+<hr>
+<h2>13. Screenshots Section</h2>
+<p>Verified visual screenshots captured using headless Chrome across standard responsive device profiles:</p>
+<h3>A. Desktop Dashboard View (1440 × 900 px)</h3>
+<p><em>Displays four top metrics cards, the expense input form, category breakdown progress bars, the filter toolbar, and the interactive expense history.</em></p>
+<figure><img src="assets/screenshots/expense-tracker-desktop.png" alt="Desktop Dashboard"><figcaption style="color: #64748b; font-size: 0.85rem; text-align: center; margin-top: 0.25rem;">Desktop Dashboard</figcaption></figure>
+<h3>B. Tablet View (768 × 1024 px)</h3>
+<p><em>Demonstrates responsive 2-column metrics grid and adaptive vertical layout.</em></p>
+<figure><img src="assets/screenshots/expense-tracker-tablet.png" alt="Tablet View"><figcaption style="color: #64748b; font-size: 0.85rem; text-align: center; margin-top: 0.25rem;">Tablet View</figcaption></figure>
+<h3>C. Mobile View (375 × 812 px)</h3>
+<p><em>Demonstrates compact single-column navigation, responsive action buttons, and touch-optimized controls.</em></p>
+<figure><img src="assets/screenshots/expense-tracker-mobile.png" alt="Mobile View"><figcaption style="color: #64748b; font-size: 0.85rem; text-align: center; margin-top: 0.25rem;">Mobile View</figcaption></figure>
+<hr>
+<h2>14. Testing and Verification Results</h2>
+<p>An automated test suite (<code>scratch/test-expense-tracker.js</code>) consisting of 22 targeted test assertions was executed. All test cases passed with 100% compliance.</p>
+<table><thead><tr><th>Test ID</th><th>Test Scenario / Objective</th><th>Expected Result</th><th>Actual Result</th><th>Status</th></tr></thead><tbody>
+<tr><td>**T01**</td><td>Script Compilation & Syntax Check</td><td>`app.js` compiles without runtime syntax errors</td><td>Zero syntax errors detected</td><td>**PASS**</td></tr>
+<tr><td>**T02**</td><td>Category Definitions Audit</td><td>Exactly 10 defined categories with colors & icons</td><td>10 categories verified</td><td>**PASS**</td></tr>
+<tr><td>**T03**</td><td>Total Calculation Engine</td><td>Cumulative sum of sample items equals 4000.00</td><td>Total calculated: 4000.00</td><td>**PASS**</td></tr>
+<tr><td>**T04**</td><td>Average Calculation Engine</td><td>Cumulative average equals 1000.00</td><td>Average calculated: 1000.00</td><td>**PASS**</td></tr>
+<tr><td>**T05**</td><td>Monthly Calculation Engine</td><td>Sum of November transactions equals 3500.00</td><td>Month total: 3500.00</td><td>**PASS**</td></tr>
+<tr><td>**T06**</td><td>Category Breakdown Calculation</td><td>Category-specific aggregations match input records</td><td>All category sums exact</td><td>**PASS**</td></tr>
+<tr><td>**T07**</td><td>Top Category Detection</td><td>Highest spend category identified as "Food & Dining"</td><td>"Food & Dining" identified</td><td>**PASS**</td></tr>
+<tr><td>**T08**</td><td>Category Filtering</td><td>Filtering "Food & Dining" isolates single matching record</td><td>1 record returned</td><td>**PASS**</td></tr>
+<tr><td>**T09**</td><td>Substring Search Filtering</td><td>Querying "pass" matches title "Train Pass"</td><td>1 record returned</td><td>**PASS**</td></tr>
+<tr><td>**T10**</td><td>Date Range Filter</td><td>Range filter between Nov 1 and Nov 3 isolates 2 records</td><td>2 records returned</td><td>**PASS**</td></tr>
+<tr><td>**T11**</td><td>Date Descending Sort</td><td>Newest transaction appears first</td><td>Nov 5 placed first</td><td>**PASS**</td></tr>
+<tr><td>**T12**</td><td>Amount Descending Sort</td><td>Highest transaction (1500) appears first</td><td>1500 placed first</td><td>**PASS**</td></tr>
+<tr><td>**T13**</td><td>Alphabetical Title Sort</td><td>Alphabetical reordering places "Book" first</td><td>"Book" placed first</td><td>**PASS**</td></tr>
+<tr><td>**T14**</td><td>LocalStorage Persistence</td><td>Serializes and deserializes array of 4 items</td><td>4 items restored</td><td>**PASS**</td></tr>
+<tr><td>**T15**</td><td>Corrupt Storage Recovery</td><td>Graceful recovery from malformed JSON string</td><td>Empty array fallback</td><td>**PASS**</td></tr>
+<tr><td>**T16**</td><td>Inline Edit Mutation</td><td>Modifying record updates amount and title in-place</td><td>Record updated</td><td>**PASS**</td></tr>
+<tr><td>**T17**</td><td>Record Deletion</td><td>Removing item reduces array count and removes ID</td><td>Record purged cleanly</td><td>**PASS**</td></tr>
+<tr><td>**T18**</td><td>Form Validation (Empty Title)</td><td>Prevents submission when title < 2 characters</td><td>Error flagged</td><td>**PASS**</td></tr>
+<tr><td>**T19**</td><td>Form Validation (Zero Amount)</td><td>Prevents submission when amount $\le 0$</td><td>Error flagged</td><td>**PASS**</td></tr>
+<tr><td>**T20**</td><td>Modal Confirmation Dialog</td><td>Opens confirmation modal before destructive actions</td><td>Modal triggered</td><td>**PASS**</td></tr>
+<tr><td>**T21**</td><td>Reset Filters Action</td><td>Restores all filter inputs to default state</td><td>All controls cleared</td><td>**PASS**</td></tr>
+<tr><td>**T22**</td><td>Responsive Layout Verification</td><td>Layout displays cleanly without horizontal overflow</td><td>Checked at 375px, 768px, 1440px</td><td>**PASS**</td></tr>
+</tbody></table>
+<hr>
+<h2>15. Challenges and Solutions</h2>
+<p>1. <strong>CSS Specificity vs Boolean <code>[hidden]</code> Attribute:</strong></p>
+<ul>
+<li><em>Challenge:</em> In initial screenshot testing, the modal dialog was rendered visible despite having the HTML <code>hidden</code> attribute.</li>
+<li><em>Root Cause:</em> <code>.modal-overlay { display: flex; }</code> possesses higher CSS specificity than the browser user-agent stylesheet rule <code>[hidden] { display: none; }</code>.</li>
+<li><em>Solution:</em> Added an explicit universal selector rule <code>[hidden] { display: none !important; }</code> at the top of <code>styles.css</code>.</li>
+</ul>
+<p>2. <strong>Accurate Date Period Filtering Across Timezones:</strong></p>
+<ul>
+<li><em>Challenge:</em> Date strings formatted as $YYYY-MM-DD$ can suffer off-by-one day bugs when parsed with <code>new Date("YYYY-MM-DD")</code> due to UTC midnight offsets.</li>
+<li><em>Solution:</em> Implemented localized date splitting <code>[year, month, day] = str.split('-').map(Number)</code> to construct local calendar <code>Date</code> objects, ensuring 100% boundary accuracy.</li>
+</ul>
+<p>3. <strong>DOM Scalability and Event Listener Overhead:</strong></p>
+<ul>
+<li><em>Challenge:</em> Attaching individual <code>click</code> listeners to edit and delete buttons on every re-render causes memory leaks and performance degradation.</li>
+<li><em>Solution:</em> Implemented event delegation on the parent container <code>#expense-list-container</code> using <code>e.target.closest('[data-action]')</code>.</li>
+</ul>
+<hr>
+<h2>16. Project Outcomes</h2>
+<ul>
+<li>Successfully delivered a complete, responsive, and robust Interactive Expense Tracker Web Application.</li>
+<li>Achieved zero external framework dependencies while providing modern, reactive state-driven user experience.</li>
+<li>Full compliance with all functional requirements: expense entry, editing, deletion, multi-criteria filtering, sorting, automated financial calculations, and LocalStorage persistence.</li>
+<li>Complete documentation and verification delivered in the repository.</li>
+</ul>
+<hr>
+<h2>17. Future Enhancements</h2>
+<ul>
+<li><strong>Data Export & Import:</strong> Ability to download expense history as CSV or JSON files and restore backups.</li>
+<li><strong>Budget Alerts:</strong> Setting monthly spending caps per category with visual warning alerts when exceeding 80% and 100% thresholds.</li>
+<li><strong>Recurring Transactions:</strong> Automated logging for recurring subscriptions (rent, utilities, gym memberships).</li>
+<li><strong>Interactive SVG Charts:</strong> Expanding visual progress bars into interactive donut and line trend charts.</li>
+</ul>
+<hr>
+<h2>18. Conclusion</h2>
+<p>The <strong>Interactive Expense Tracker Web Application</strong> fulfills all functional, architectural, and documentation standards specified for the project. By focusing on semantic HTML5, modern CSS3 styling, clean vanilla JavaScript, and robust client-side storage, the project provides a fast, accessible, and user-centric financial dashboard that functions entirely offline in any modern web browser.</p>
+<hr>
+<h2>19. GitHub Repository Link</h2>
+<ul>
+<li><strong>Repository URL:</strong> <a href="https://github.com/dharmarayank946/Expense_Tracker.git" target="_blank" rel="noopener">https://github.com/dharmarayank946/Expense_Tracker.git</a></li>
+<li><strong>Author:</strong> Dharmaraya</li>
+</ul>
+  </article>
+</body>
+</html>

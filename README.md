@@ -125,3 +125,4 @@ Verified screenshots are located in `assets/screenshots/`.
 - **GitHub Repository:** [https://github.com/dharmarayank946/Expense_Tracker.git](https://github.com/dharmarayank946/Expense_Tracker.git)
 - **Primary Branch:** `main`
 - **Author:** Dharmaraya
+
